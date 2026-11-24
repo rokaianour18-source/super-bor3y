@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#081b36">
+<title>سوبر برعي | اتحاد طلاب بهتيم</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;600;700;800&display=swap');
+:root{--navy:#071a34;--ink:#10233f;--cyan:#5ce1e6;--gold:#ffc857;--paper:#fffdf8}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 12% 7%,#23506a 0,transparent 34%),radial-gradient(ellipse at 92% 20%,#473a68 0,transparent 31%),linear-gradient(145deg,#071a34,#0c2343 58%,#142943);color:white;font-family:'Cairo',sans-serif;min-height:100vh}
+.stars{position:fixed;inset:0;pointer-events:none;opacity:.35;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,#000,transparent 82%)}
+header{max-width:1100px;margin:auto;padding:24px 26px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:900;letter-spacing:.4px}
+.brand small{display:block;color:#9fb7d6;font:600 12px Inter,sans-serif;letter-spacing:2px}
+.lang{border:1px solid #ffffff40;background:#ffffff12;color:white;border-radius:999px;padding:9px 14px;font:700 14px Cairo;cursor:pointer}
+.hero{max-width:1100px;margin:0 auto;padding:28px 26px 50px;display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
+.eyebrow{color:var(--cyan);font-weight:800;letter-spacing:1px}
+.hero h1{font-size:clamp(42px,7vw,78px);line-height:1.08;margin:13px 0 12px;font-weight:900}
+.latin{font:800 clamp(22px,4vw,38px) Inter,sans-serif;color:var(--gold);direction:ltr;text-align:right}
+.hero p{color:#c5d4e7;font-size:18px;line-height:1.9;max-width:620px}
+.badge{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:9px 15px;border:1px solid #ffffff30;border-radius:99px;background:#ffffff0e;color:#d9e7f6;font-weight:700}
+.bot-wrap{display:grid;place-items:center;min-height:380px;position:relative}
+.orb{position:absolute;width:min(360px,85vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 45% 38%,#69ffff38,transparent 64%);border:1px solid #7af4ed30;box-shadow:0 0 90px #49c8d930}
+.bot-img-container{position:relative;width:min(260px,70vw);aspect-ratio:1;border-radius:50%;border:4px solid var(--gold);box-shadow:0 22px 30px #0009;animation:float 4s ease-in-out infinite;overflow:hidden;background:#0d223f;display:grid;place-items:center}
+.bot-img-container img{width:100%;height:100%;object-fit:cover}
+.bot-fallback{font-size:90px;display:none}
+.spark{position:absolute;color:var(--gold);font-size:28px}
+.s1{top:16%;right:18%}.s2{left:12%;bottom:24%;color:var(--cyan)}
+@keyframes float{50%{transform:translateY(-13px)}}
+.section{max-width:1100px;margin:0 auto;padding:0 26px 48px}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin:10px 0 19px;gap:12px;flex-wrap:wrap}
+.section-title h2{font-size:28px;margin:0}
+.title-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card{background:var(--paper);color:var(--ink);border-radius:22px;padding:clamp(22px,4vw,40px);box-shadow:0 22px 60px #0003;line-height:1.95;font-size:17px;margin-bottom:20px}
+.card[hidden]{display:none}
+.card h3{margin:0 0 12px;color:#087c8b;font-size:20px}
+.card p{margin:0 0 10px}
+.play-audio-btn,.section-title button{background:var(--cyan);color:#071a34;border:0;border-radius:999px;padding:10px 18px;font:800 15px Cairo;cursor:pointer;margin-top:0}
+.stop-btn{background:#ff6b6b !important;color:white !important}
+.pdf-btn{background:var(--navy);color:var(--cyan);border:2px solid var(--cyan);border-radius:999px;padding:10px 20px;font:800 15px Cairo;cursor:pointer;margin-top:14px;display:inline-flex;align-items:center;gap:8px;transition:0.3s}
+.pdf-btn:hover{background:var(--cyan);color:var(--navy)}
+.language-menu{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0 16px}
+.language-menu[hidden]{display:none}
+.language-menu button{border:1px solid #ffffff35;background:#ffffff12;color:white;border-radius:14px;padding:12px;font:700 15px Cairo;cursor:pointer}
+.language-menu button[aria-pressed=true],.language-menu button:hover{background:var(--cyan);color:#071a34}
+.timeline{max-width:1100px;margin:0 auto;padding:0 26px 48px}
+.years{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.year{border:1px solid #ffffff24;background:#ffffff0b;border-radius:18px;padding:17px 15px;min-height:112px}
+.year b{display:block;color:var(--gold)}
+.year span{display:block;color:#d1deee;font-size:14px;margin-top:10px}
+.chat-box{background:#0d223f;border:1px solid #ffffff30;border-radius:18px;padding:20px;margin-top:20px}
+.chat-messages{height:350px;overflow-y:auto;background:#071a34;border-radius:12px;padding:15px;margin-bottom:12px;display:flex;flex-direction:column;gap:12px}
+.msg{padding:12px 16px;border-radius:12px;max-width:85%;line-height:1.6}
+.msg.bot{background:#10233f;color:#5ce1e6;align-self:flex-start}
+.msg.user{background:#5ce1e6;color:#071a34;align-self:flex-end;font-weight:700}
+.chat-input-area{display:flex;gap:8px}
+.chat-input-area input{flex:1;padding:12px;border-radius:10px;border:1px solid #ffffff30;background:#ffffff10;color:white;font-family:'Cairo';font-size:15px}
+.chat-input-area button{background:var(--cyan);border:0;border-radius:10px;padding:0 22px;font-weight:800;color:#071a34;cursor:pointer}
+.qr-container{text-align:center;background:#ffffff10;border:1px dashed #ffffff40;border-radius:18px;padding:20px;margin-top:20px}
+.qr-box{background:white;padding:10px;display:inline-block;border-radius:10px;margin-top:10px}
+.foot{text-align:center;color:#90a8c4;padding:0 20px 30px;font-size:13px}
+.foot strong{color:var(--cyan)}
+.conversation-card{background:#0d223f;border:1px solid #ffffff30;border-radius:18px;padding:22px;margin-top:14px}
+.conversation-card[hidden]{display:none}
+.conversation-controls{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.conversation-controls label{display:grid;gap:7px;color:#d9e7f6;font-weight:700}
+.conversation-controls select{width:100%;padding:11px;border-radius:10px;border:1px solid #ffffff35;background:#10233f;color:white;font:700 15px Cairo}
+.conversation-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.conversation-play{background:var(--cyan);color:#071a34;border:0;border-radius:999px;padding:12px 20px;font:800 16px Cairo;cursor:pointer}
+.conversation-stop{background:#ff6b6b;color:white;border:0;border-radius:999px;padding:12px 20px;font:800 16px Cairo;cursor:pointer}
+.conversation-status{color:#c5d4e7;min-height:28px;margin:12px 0 0}
+.modal{position:fixed;inset:0;background:#0008;z-index:999;display:none;place-items:center;padding:20px}
+.modal.active{display:grid}
+.modal-content{background:#0d223f;border:2px solid var(--cyan);border-radius:20px;width:100%;max-width:900px;height:85vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 25px 50px #000}
+.modal-header{padding:15px 20px;background:#071a34;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff20}
+.modal-header h3{margin:0;color:var(--cyan);font-size:18px}
+.close-modal{background:#ff4d4d;color:white;border:0;border-radius:50%;width:32px;height:32px;font-weight:bold;cursor:pointer;display:grid;place-items:center}
+.modal-body{flex:1;background:white;width:100%}
+.modal-body iframe{width:100%;height:100%;border:0}
+@media(max-width:760px){.hero{grid-template-columns:1fr;text-align:center;padding-top:10px}.hero p{margin:14px auto}.latin{text-align:center}.bot-wrap{min-height:280px}.years{grid-template-columns:1fr 1fr}.section-title{align-items:start;gap:8px;flex-direction:column}}
+@media(max-width:600px){.conversation-controls{grid-template-columns:1fr}.language-menu{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<header>
+  <div class="brand">اتحاد الطلاب<small>BAHTEEM OFFICIAL LANGUAGE SCHOOL</small></div>
+  <button class="lang" onclick="openIntroSection();document.getElementById('story').scrollIntoView({behavior:'smooth'})">اختار اللغة</button>
+</header>
+<main>
+<section class="hero">
+  <div>
+    <div class="eyebrow">حكاية روبوت.. وتطور كل سنة</div>
+    <h1>سوبر برعي</h1>
+    <div class="latin">SUPER BOR3Y</div>
+    <p>أنا روبوت صنعه اتحاد طلاب مدرسة بهتيم الرسمية للغات، مستشار قانوني ذكي متخصص في القرار الوزاري 62 لسنة 2013 والاتحادات الطلابية.</p>
+    <div class="badge">✦ من بهتيم.. للعالم</div>
+  </div>
+  <div class="bot-wrap" aria-label="روبوت">
+    <div class="orb"></div><span class="spark s1">✦</span><span class="spark s2">✧</span>
+    <div class="bot-img-container">
+      <img src="super-bor3y.jpg.jpg" alt="سوبر برعي" onerror="this.style.display='none';document.getElementById('fallbackEmoji').style.display='block'">
+      <div id="fallbackEmoji" class="bot-fallback">🤖</div>
+    </div>
+  </div>
+</section>
+<audio id="audio-ar" src="audio-ar.mp3.mp3"></audio>
+<audio id="audio-en" src="audio-en.mp3.mp3"></audio>
+<audio id="audio-fr" src="audio-fr.mp3.mp3"></audio>
+<audio id="audio-ge" src="audio-ge.mp3.mp3"></audio>
+<audio id="audio-chi" src="audio-chi.mp3.mp3"></audio>
+<section class="section">
+  <div class="section-title">
+    <h2 id="story">حكايتي واللغات</h2>
+    <div class="title-actions">
+      <button id="toggleIntroBtn" onclick="toggleIntroSection()">إغلاق التعريف ▴</button>
+      <button class="stop-btn" onclick="stopAllAudio()">⏹ إيقاف الصوت</button>
+    </div>
+  </div>
+  <div id="introContent">
+    <div class="language-menu open" id="languageMenu">
+      <button onclick="showStory('ar',this)" aria-pressed="true">🇪🇬 العربية الفصحى</button>
+      <button onclick="showStory('masri',this)">🇪🇬 اللهجة المصرية</button>
+      <button onclick="showStory('en',this)">🇬🇧 English</button>
+      <button onclick="showStory('fr',this)">🇫🇷 Français</button>
+      <button onclick="showStory('de',this)">🇩🇪 Deutsch</button>
+      <button onclick="showStory('zh',this)">🇨🇳 中文</button>
+    </div>
+    <article class="card" id="ar">
+      <h3>🇪🇬 العربية الفصحى</h3>
+      <p>أنا سوبر برعي، روبوت تم تصنيعي من اتحاد طلاب مدرسة بهتيم الرسمية للغات عام 2022-2023، ثم تم تطويري كل عام بشعار جديد وطموح أكبر. وهذا العام شعار الاتحاد: طالب عالمي متجذر.</p>
+      <button class="play-audio-btn" onclick="playAudio('audio-ar')">🔊 اسمع صوت العربية</button>
+    </article>
+    <article class="card" id="masri" hidden>
+      <h3>🇪🇬 اللهجة المصرية</h3>
+      <p>أنا سوبر برعي، روبوت عمله اتحاد طلاب مدرسة بهتيم الرسمية للغات، وكل سنة بتتجدد حكايتي مع شعار جديد وطموح أكبر.</p>
+      <button class="play-audio-btn" onclick="playAudio('audio-ar')">🔊 اسمع صوت المصرية</button>
+    </article>
+    <article class="card" id="en" hidden>
+      <h3>🇬🇧 English</h3>
+      <p dir="ltr">I am Super Bora'ei, a robot made by the Student Union of Bahteem Official Language School. My story grows every year with a new slogan and a bigger ambition.</p>
+      <button class="play-audio-btn" onclick="playAudio('audio-en')">🔊 Play English Audio</button>
+    </article>
+    <article class="card" id="fr" hidden>
+      <h3>🇫🇷 Français</h3>
+      <p dir="ltr">Je suis Super Bora'ei, un robot créé par le syndicat étudiant de l'école officielle de langues de Bahteem. Mon histoire évolue chaque année.</p>
+      <button class="play-audio-btn" onclick="playAudio('audio-fr')">🔊 Écouter l'audio</button>
+    </article>
+    <article class="card" id="de" hidden>
+      <h3>🇩🇪 Deutsch</h3>
+      <p dir="ltr">Ich bin Super Bora'ei, ein Roboter der Schülervertretung der offiziellen Sprachschule Bahteem.</p>
+      <button class="play-audio-btn" onclick="playAudio('audio-ge')">🔊 Deutsches Audio abspielen</button>
+    </article>
+    <article class="card" id="zh" hidden>
+      <h3>🇨🇳 中文</h3>
+      <p dir="ltr">我是超级布雷伊，是巴赫蒂姆官方语言学校学生会制作的机器人。</p>
+      <button class="play-audio-btn" onclick="playAudio('audio-chi')">🔊 播放中文语音</button>
+    </article>
+  </div>
+</section>
+<section class="section">
+  <div class="section-title"><h2>اتحادات الطلاب والقرار 62 لسنة 2013</h2></div>
+  <div class="card">
+    <h3>📋 ما هو القرار 62 لسنة 2013؟</h3>
+    <p>هو القرار الوزاري المنظم للاتحادات الطلابية في المدارس المصرية، ويهدف إلى غرس الروح الديمقراطية وإعداد قيادات شبابية واعية وتفعيل المشاركة الإيجابية في أنشطة المدرسة.</p>
+    <button class="pdf-btn" onclick="openPdfModal()">📄 استعرض القرار الوزاري (PDF)</button>
+  </div>
+</section>
+<div class="modal" id="pdfModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>القرار الوزاري رقم 62 لسنة 2013</h3>
+      <button class="close-modal" onclick="closePdfModal()">✕</button>
+    </div>
+    <div class="modal-body"><iframe id="pdfFrame" src="" title="القرار الوزاري"></iframe></div>
+  </div>
+</div>
+<section class="section">
+  <div class="section-title"><h2>المكتب التنفيذي للاتحاد (هذا العام)</h2></div>
+  <div class="card">
+    <h3>👥 تشكيل المكتب التنفيذي ورعاة الاتحاد</h3>
+    <p>
+      • <strong>الرائد العام للاتحاد:</strong> أ/ أسامة ربيع<br>
+      • <strong>الأخصائي المختص بنشاط الاتحاد:</strong> أ/ نوال حسانين<br>
+      • <strong>أمين الاتحاد:</strong> عنان علي<br>
+      • <strong>الأمين المساعد:</strong> مازن محمد<br>
+      • <strong>المقرر الديني والثقافي:</strong> رقية رمضان<br>
+      • <strong>المقرر الاجتماعي:</strong> مصطفى عبدالفتاح<br>
+      • <strong>المقرر الفني:</strong> أحمد محمود<br>
+      • <strong>المقرر الرياضي:</strong> أحمد سامح<br>
+      • <strong>المقرر العلمي:</strong> شهد شحاته<br>
+      • <strong>عضو فعال:</strong> سلمى حسام
+    </p>
+  </div>
+</section>
+<section class="section">
+  <div class="section-title">
+    <h2>🎙️ اتكلم مع برعي</h2>
+    <div class="title-actions"><button id="toggleConvBtn" onclick="toggleConversationSection()">إغلاق القسم ▴</button></div>
+  </div>
+  <div class="conversation-card" id="conversationCard">
+    <p>اختاري لغة سؤال برعي ولغة رد الطالب، وسيُشغّل الموقع السؤال ثم الرد بالترتيب.</p>
+    <div class="conversation-controls">
+      <label>لغة سؤال برعي
+        <select id="questionLanguage">
+          <option value="ar">العربية</option><option value="eg">المصرية</option><option value="اس">الصعيدية</option><option value="oeg">المصرية القديمة (هيروغليفي)</option><option value="en">English</option><option value="fr">Français</option><option value="ge">Deutsch</option><option value="chi">中文</option>
+        </select>
+      </label>
+      <label>لغة رد الطالب
+        <select id="answerLanguage">
+          <option value="ar">العربية</option><option value="eg">المصرية</option><option value="اس">الصعيدية</option><option value="oeg">المصرية القديمة (هيروغليفي)</option><option value="en">English</option><option value="fr">Français</option><option value="ge">Deutsch</option><option value="chi">中文</option>
+        </select>
+      </label>
+    </div>
+    <div class="conversation-actions">
+      <button class="conversation-play" id="playConversation" type="button">▶️ شغّل السؤال والرد</button>
+      <button class="conversation-stop" id="stopConversation" type="button">⏹ إيقاف المحادثة</button>
+    </div>
+    <p class="conversation-status" id="conversationStatus" aria-live="polite"></p>
+    <audio id="conversationAudio" preload="none"></audio>
+  </div>
+</section>
+<section class="section">
+  <div class="section-title"><h2>🤖 دردش مع سوبر برعي (المستشار القانوني للقرار 62)</h2></div>
+  <div class="card">
+    <p>اسألني عن عدد مواد القرار، شروط صحة الاجتماعات، تشكيل مجلس الرواد، شروط الترشح، أو أي بند في القرار 62.</p>
+    <div class="chat-box">
+      <div class="chat-messages" id="chatMessages">
+        <div class="msg bot">أهلاً بك يا فندم! أنا سوبر برعي، مستشارك القانوني المتخصص في القرار الوزاري 62 لسنة 2013. تفضل بطرح أي سؤال أو اختبار قانوني وسأجيبك بدقة تامة!</div>
+      </div>
+      <div class="chat-input-area">
+        <input id="userInput" type="text" placeholder="اكتب سؤالك هنا (مثلاً: كم عدد مواد القرار 62؟ أو شروط صحة الاجتماع؟)..." onkeypress="handleKeyPress(event)">
+        <button onclick="sendChatMessage()">إرسال</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="qr-container">
+    <h3>📱 QR Code الموقع</h3><p>امسح الكود لفتح الموقع من الهاتف</p>
+    <div class="qr-box"><img id="qrImage" alt="QR Code" width="140" height="140"></div>
+  </div>
+</section>
+<section class="timeline">
+  <h2>رحلة التطور</h2>
+  <div class="years">
+    <div class="year"><b>2022 / 2023</b><span>المشروعات القومية والجمهورية الجديدة</span></div>
+    <div class="year"><b>2023 / 2024</b><span>الاتحادات الطلابية والذكاء الاصطناعي</span></div>
+    <div class="year"><b>2024 / 2025</b><span>بناء شخصية المتعلم</span></div>
+    <div class="year"><b>2025 / 2026</b><span>تشكيل الوعي لعالم متغير</span></div>
+    <div class="year"><b>هذا العام</b><span>طالب عالمي متجذر</span></div>
+  </div>
+</section>
+</main>
+<footer class="foot">صُنع بكل فخر في <strong>مدرسة بهتيم الرسمية للغات</strong> · 2022—2026</footer>
+<script>
+function stopAllAudio(){
+  document.querySelectorAll('audio').forEach(audio=>{audio.pause();audio.currentTime=0;});
+  if(window.cancelConversationQueue) window.cancelConversationQueue();
+}
+function toggleIntroSection(){
+  const content=document.getElementById('introContent'),btn=document.getElementById('toggleIntroBtn');
+  const willHide=!content.hidden;content.hidden=willHide;btn.textContent=willHide?'فتح التعريف ▾':'إغلاق التعريف ▴';
+  if(willHide) stopAllAudio();
+}
+function openIntroSection(){const content=document.getElementById('introContent'),btn=document.getElementById('toggleIntroBtn');content.hidden=false;btn.textContent='إغلاق التعريف ▴';}
+function toggleConversationSection(){
+  const card=document.getElementById('conversationCard'),btn=document.getElementById('toggleConvBtn');
+  const willHide=!card.hidden;card.hidden=willHide;btn.textContent=willHide?'فتح القسم ▾':'إغلاق القسم ▴';if(willHide) stopAllAudio();
+}
+function showStory(id,button){
+  document.querySelectorAll('.card[id]').forEach(card=>card.hidden=true);
+  document.getElementById(id).hidden=false;
+  document.querySelectorAll('.language-menu button').forEach(b=>b.setAttribute('aria-pressed','false'));
+  button.setAttribute('aria-pressed','true');document.documentElement.dir=['ar','masri'].includes(id)?'rtl':'ltr';
+}
+function playAudio(id){stopAllAudio();const audio=document.getElementById(id);if(audio) audio.play().catch(()=>alert('تأكدي من وجود ملف الصوت بجانب index.html وبنفس الاسم.'));}
+function openPdfModal(){document.getElementById('pdfFrame').src='decree-62.pdf';document.getElementById('pdfModal').classList.add('active');}
+function closePdfModal(){document.getElementById('pdfFrame').src='';document.getElementById('pdfModal').classList.remove('active');}
+function sendChatMessage(){
+  const input=document.getElementById('userInput'),container=document.getElementById('chatMessages'),query=input.value.trim();if(!query)return;
+  const userMessage=document.createElement('div');userMessage.className='msg user';userMessage.textContent=query;container.appendChild(userMessage);input.value='';
+  const q=query.toLowerCase();
+  let reply='أنا سوبر برعي! مستشارك القانوني للقرار 62. تفضل بسؤالي عن تفاصيل اللائحة أو تشكيل المجالس أو الشروط القانونية.';
+  if(q.includes('عدد مواد')||q.includes('كام مادة')||q.includes('كم مادة')||(q.includes('مواد')&&q.includes('القرار'))){
+    reply='القرار الوزاري رقم 62 لسنة 2013 يتكون من 9 مواد إصدارية وتنفيذية رئيسية، يليه اللائحة التنفيذية والمنظمة للاتحادات الطلابية (التي تضم المواد البنيوية وتنظيم اللجان ومجالس الرواد).';
+  }else if(q.includes('مجلس الرواد')||q.includes('عدد أعضاء مجلس الرواد')||q.includes('فصول')||q.includes('اخصائي')){
+    let fMatch=q.match(/(\d+)\s*فصل/),aMatch=q.match(/(\d+)\s*أخصائي/),classes=fMatch?parseInt(fMatch[1]):9,specs=aMatch?parseInt(aMatch[1]):2,total=19;
+    let explanation='طبقاً للمادة (38) من القرار 62 لسنة 2013 (القاعدة الأصلية 19 عضواً):\n';
+    if(classes<9){let diff=9-classes;total-=diff;explanation+=`• عدد الفصول (${classes}) أقل من 9، فنقصت ${diff} من رواد الفصول الثابتين.\n`;}else{explanation+='• عدد الفصول 9 فأكثر (أخذنا 9 رواد فصول).\n';}
+    if(specs<2){total-=(2-specs);explanation+=`• عدد الأخصائيين (${specs}) أقل من 2، فنقصت ${2-specs} (لعدم وجود أقدم أخصائي مستقل).\n`;}else{explanation+='• الأخصائيون 2 فأكثر (الأخصائي المسئول + أقدم الأخصائيين).\n';}
+    reply=`${explanation}\n الإجمالي النهائي لأعضاء مجلس الرواد = ${total} عضواً.`;
+  }else if(q.includes('صحة الاجتماع')||q.includes('النصاب')||q.includes('شروط اجتماع')||q.includes('انعقاد')||q.includes('اجتماعات')){
+    reply='شروط صحة انعقاد أي اجتماع لمجلس اتحاد الطلاب طبقاً للقرار 62:\n1. حضور الأغلبية المطلقة لعدد أعضاء المجلس (أي 50% + 1).\n2. حضور الرائد العام (مدير المدرسة) أو من ينوب عنه رسمياً.\nبدون توفر هذين الشرطين يعتبر الاجتماع باطلاً قانوناً.';
+  }else if(q.includes('سوري')||q.includes('غير مصري')||q.includes('أجنبي')||q.includes('الجنسية')||q.includes('يترشح')){
+    reply='لا يجوز لأي طالب غير مصري الترشح لأي منصب تنفيذي في الاتحادات الطلابية؛ لأن "الجنسية المصرية" شرط أساسي ووجوبي قانوناً للترشح وخوض الانتخابات.';
+  }else if(q.includes('نقل')||q.includes('مدرسة أخرى')||q.includes('حول')||q.includes('تغيير المدرسة')){
+    reply='إذا انتقل الطالب إلى مدرسة أخرى، تزول عنه عضوية الاتحاد فوراً وتعتبر مناصبة شاغرة، لارتباط الصفة والمكان بقيده المدرسي الأصلي.';
+  }else if(q.includes('اختصاصات')||q.includes('دور')||q.includes('مهام')||q.includes('امين الاتحاد')){
+    reply='أمين اتحاد الطلاب يمثل قواعد المدرسة في مجلس الإدارة، ويدير جلسات المكتب التنفيذي، ويتابع تنفيذ خطط اللجان الخمس بالتعاون مع الرائد العام والأخصائي المختص.';
+  }else if(q.includes('62')||q.includes('قرار')||q.includes('لائحة')){
+    reply='القرار 62 لسنة 2013 هو اللائحة التنفيذية المنظمة للاتحادات الطلابية في المدارس المصرية، وصدر بهدف غرس القيم الديمقراطية، إعداد القيادات الواعية، وتفعيل المشاركة الطلابية الإيجابية.';
+  }else if(q.includes('عنان')||q.includes('أمين الاتحاد')||q.includes('امين الاتحاد')){
+    reply='أمين اتحاد الطلاب هو عنان علي، والأمين المساعد هو مازن محمد.';
+  }else if(q.includes('مازن')||q.includes('مساعد')){reply='الأمين المساعد لاتحاد الطلاب هو مازن محمد.';}
+  else if(q.includes('رقية')||q.includes('ديني')||q.includes('ثقافي')){reply='المقرر الديني والثقافي هي رقية رمضان (صاحبة الفكر والتطوير المميز!).';}
+  else if(q.includes('مصطفى')||q.includes('اجتماعي')){reply='المقرر الاجتماعي هو مصطفى عبدالفتاح.';}
+  else if(q.includes('محمود')||q.includes('فني')){reply='المقرر الفني هو أحمد محمود.';}
+  else if(q.includes('سامح')||q.includes('رياضي')){reply='المقرر الرياضي هو أحمد سامح.';}
+  else if(q.includes('شهد')||q.includes('علمي')){reply='المقرر العلمي هي شهد شحاته.';}
+  else if(q.includes('سلمى')||q.includes('عضو')){reply='العضو الفعال هي سلمى حسام.';}
+  else if(q.includes('نوال')||q.includes('أخصائي')||q.includes('اخصائي')){reply='الأخصائي المختص بنشاط الاتحاد هي الأستاذة نوال حسانين.';}
+  else if(q.includes('أسامة')||q.includes('اسامة')||q.includes('رائد')){reply='الرائد العام للاتحاد هو الأستاذ أسامة ربيع.';}
+  else if(q.includes('أعضاء')||q.includes('اعضاء')||q.includes('المكتب التنفيذي')){
+    reply='المكتب التنفيذي لمدرسة بهتيم الرسمية للغات:\n• عنان علي (أمين الاتحاد)\n• مازن محمد (الأمين المساعد)\n• رقية رمضان (المقرر الديني والثقافي)\n• مصطفى عبدالفتاح (المقرر الاجتماعي)\n• أحمد محمود (المقرر الفني)\n• أحمد سامح (المقرر الرياضي)\n• شهد شحاته (المقرر العلمي)\n• سلمى حسام (عضو فعال)\n• الرائد العام: أ/ أسامة ربيع\n• الأخصائي المختص: أ/ نوال حسانين';
+  }
+  const botMessage=document.createElement('div');botMessage.className='msg bot';botMessage.style.whiteSpace='pre-line';botMessage.textContent=reply;container.appendChild(botMessage);container.scrollTop=container.scrollHeight;
+}
+function handleKeyPress(event){if(event.key==='Enter')sendChatMessage();}
+(function(){
+  const player=document.getElementById('conversationAudio'),button=document.getElementById('playConversation'),stopBtn=document.getElementById('stopConversation'),status=document.getElementById('conversationStatus');
+  let answerFile='';
+  const labels={ar:'العربية',eg:'المصرية',ss:'الصعيدية',oeg:'المصرية القديمة (الهيروغليفية)',en:'الإنجليزية',fr:'الفرنسية',ge:'الألمانية',chi:'الصينية'};
+  window.cancelConversationQueue=function(){answerFile='';player.pause();player.currentTime=0;status.textContent='تم إيقاف المحادثة.';};
+  button.addEventListener('click',()=>{
+    stopAllAudio();const questionCode=document.getElementById('questionLanguage').value,answerCode=document.getElementById('answerLanguage').value;
+    answerFile='audio-ans-'+answerCode+'.mp3';player.src='audio-q-'+questionCode+'.mp3';status.textContent='برعي بيسأل باللغة '+labels[questionCode]+'...';
+    player.play().catch(()=>status.textContent='تعذر تشغيل السؤال. تأكدي من وجود ملف audio-q-'+questionCode+'.mp3 بجانب index.html.');
+  });
+  stopBtn.addEventListener('click',()=>window.cancelConversationQueue());
+  player.addEventListener('ended',()=>{
+    if(!answerFile)return;const file=answerFile;answerFile='';const code=file.match(/audio-ans-(.+)\.mp3$/)[1];
+    status.textContent='الطالب بيرد باللغة '+labels[code]+'...';player.src=file;
+    player.play().catch(()=>status.textContent='تعذر تشغيل الرد. تأكدي من وجود الملف '+file+' بجانب index.html.');
+  });
+})();
+document.getElementById('qrImage').src='https://api.qrserver.com/v1/create-qr-code/?size=140x140&data='+encodeURIComponent(window.location.href);
+</script>
+</body>
+</html>
